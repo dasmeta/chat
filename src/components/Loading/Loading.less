@@ -1,0 +1,31 @@
+@import '../../theme';
+
+.t-loading {
+  text-align: center;
+
+  &.t-loading-fullscreen {
+    height: 100vh;
+  }
+
+  &.t-loading-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+
+    .t-loading-content {
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      width: 100%;
+    }
+  }
+}
+.t-loading-color-wrapper {
+  .t-loading-content > div > div {
+    div {
+      background-color: @primary-color;
+    }
+  }
+}

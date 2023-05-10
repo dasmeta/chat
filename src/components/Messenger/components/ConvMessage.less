@@ -1,0 +1,135 @@
+@import '../../../theme.less';
+.t-conv-message-item-container {
+  display: flex;
+  flex-direction: column;
+}
+.t-conv-message-container {
+  display: flex;
+  padding: @padding-md;
+  text-align: initial;
+  .t-chatApp-conv-message-wrapper {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .t-chatApp-conv-message-avatar {
+    margin-right: @margin-md;
+  }
+}
+.chatApp__convMessageValue {
+  width: 100%;
+  .t-conv-message-text {
+    background: @background-light-50;
+    border-radius: 4px 4px 20px 8px;
+    max-width: 450px;
+    width: fit-content;
+    margin-left: 0;
+
+    pre {
+      margin-bottom: 0;
+      white-space: pre-wrap;
+      padding: 12px;
+      word-break: break-all;
+    }
+  }
+  .t-conv-message-text-replied {
+    background: #e9e9f0;
+  }
+  .chatApp__convMessageHeader {
+    display: flex;
+    .chatApp__convMessageHeaderText {
+      font-weight: 500;
+      color: @text-dark-100;
+    }
+    .chatApp__convMessageDate {
+      font-size: 13;
+      font-weight: 400;
+      color: #909091;
+      margin: 0 8px;
+    }
+  }
+  img,
+  audio,
+  video {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+.t-chatApp-message-seen-avatars-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  .t-chatApp-message-seen-avatar {
+    margin: 0 1px;
+  }
+}
+.t-chatApp-message-seen-names-wrapper {
+  max-width: fit-content;
+  .t-chatApp-message-seen-name {
+    font-size: 13px;
+    color: 'gray';
+  }
+}
+
+.t-conv-message-container-right {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: @padding-md;
+  text-align: initial;
+  .t-chatApp-conv-message-wrapper {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    .t-chatApp-message-seen-names-wrapper {
+      max-width: fit-content;
+      text-align: right;
+    }
+    .t-chatApp-message-seen-avatars-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+  }
+  .t-chatApp-conv-message-avatar {
+    margin-left: @margin-md;
+  }
+  .t-conv-replied-message {
+    margin-left: auto;
+  }
+  .t-conv-message-text {
+    border-radius: 4px 4px 20px 8px;
+    max-width: 450px;
+    width: fit-content;
+    margin-left: auto;
+  }
+  .t-conv-message-text-replied {
+    background: #e9e9f0;
+  }
+}
+.t-avatar-with-text-container {
+  align-items: flex-start;
+}
+.t-conv-replied-message {
+  background: @background-light-50;
+  border-radius: 4px 4px 20px 8px;
+  max-width: 450px;
+  width: fit-content;
+  padding: 12px 12px 24px;
+  margin-bottom: -23px;
+  color: #bbbbbc;
+}
+.t-conv-message-text-link {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  padding: 12px;
+  word-break: break-all;
+}
+.t-load-attachment {
+  cursor: pointer;
+}
+
+.t-load-attachment-text {
+  padding-left: @padding-md;
+}

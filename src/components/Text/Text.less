@@ -1,0 +1,165 @@
+@import '../../theme';
+
+.t-text {
+  padding: 0;
+  margin: 0;
+  word-break: break-word;
+  white-space: normal;
+  color: @text-dark-100;
+
+  a {
+    color: inherit;
+  }
+}
+
+.t-inline {
+  display: inline;
+}
+
+.t-text-hover {
+  &:hover {
+    color: @primary-color;
+  }
+}
+
+// text sizes
+
+.t-body {
+  font-size: @font-size-md;
+  // line-height: 23px;
+}
+
+.t-body2 {
+  line-height: 24px;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+  font-size: @font-size-sm;
+}
+
+.t-paragraph {
+  font-size: @font-size-xs;
+  // line-height: 18px;
+}
+
+.t-caption {
+  font-size: @font-size-xxs;
+  // line-height: 14px;
+}
+
+.t-bold {
+  font-weight: bold;
+}
+
+.t-underline {
+  text-decoration: underline;
+}
+
+.t-semiBold {
+  font-weight: 600;
+}
+
+.t-text-paddingBottom-1 {
+  margin-bottom: @margin-md;
+}
+
+.t-text-paddingBottom-2 {
+  margin-bottom: @margin-sm;
+}
+
+.t-text-paddingBottom-3 {
+  margin-bottom: @margin-xs;
+}
+
+.t-text-paddingBottom-4 {
+  margin-bottom: @margin-xxs;
+}
+
+//text colors "dark-100" | "dark-50" | "dark-30" | "dark-20" | "dark-10" | "light" | primary
+.t-text-color-primary {
+  color: @primary-color;
+}
+
+.t-text-color-white {
+  color: #ffffff;
+}
+
+.t-text-color-black {
+  color: #262626;
+}
+
+.t-text-color-dark-100 {
+  color: @text-dark-100;
+}
+
+.t-text-color-dark-50 {
+  color: @text-dark-50;
+}
+
+.t-text-color-dark-30 {
+  color: @text-dark-30;
+}
+
+.t-text-color-dark-20 {
+  color: @text-dark-20;
+}
+
+.t-text-color-dark-10 {
+  color: @text-dark-10;
+}
+
+.t-text-color-light {
+  color: @white-color;
+}
+
+.t-text-color-blue {
+  color: @blue-color;
+}
+
+//text colors "indicator-good" | "indicator-caution" | "indicator-bad" | "indicator-neutral" | "trial"
+.t-text-color-indicator-good {
+  color: @indicator-good;
+}
+
+.t-text-color-indicator-caution {
+  color: @indicator-caution;
+}
+
+.t-text-color-indicator-bad {
+  color: @indicator-bad;
+}
+
+.t-text-color-indicator-neutral {
+  color: @indicator-neutral;
+}
+
+.t-text-color-trial {
+  color: @trial-color;
+}
+
+.t-text-color-currentcolor {
+  color: currentcolor;
+}
+
+.t-text-row {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: fit-content;
+}
+
+.t-text-row-1 {
+  -webkit-line-clamp: 1;
+}
+
+.t-text-row-2 {
+  -webkit-line-clamp: 2;
+}
+
+.t-text-row-3 {
+  -webkit-line-clamp: 3;
+}
+
+.t-read-more-wrapper {
+  color: @positive-color;
+  cursor: pointer;
+}

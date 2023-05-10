@@ -1,0 +1,17 @@
+{
+  "ui.no.payment.text": "No available payments",
+  "ui.calendar": "Calendar",
+  "ui.month": "Month",
+  "ui.week": "Week",
+  "ui.day": "Day",
+  "ui.agenda": "Agenda",
+  "ui.student.count": "{{count}} students",
+  "ui.flexible.schedule": "Flexible Schedule",
+  "ui.read.more": "Read More",
+  "ui.read.less": "Read Less",
+  "ui.type.message": "Type a message...",
+  "ui.practice": "Practice",
+  "ui.book": "Book",
+  "news.date": "Date",
+  "news.author": "Author"
+}

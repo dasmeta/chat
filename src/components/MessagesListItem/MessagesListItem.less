@@ -1,0 +1,86 @@
+@import '../../theme';
+
+.t-messages-list-item {
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  height: 83px; // :(
+  border-bottom: @border-color-base;
+  border-right: 4px solid transparent;
+  padding: @padding-md;
+  @media screen and (max-width: @screen-sm-max) {
+    padding: 8px;
+  }
+  .t-avatar-container {
+    .t-avatar-wrapper {
+      margin-right: @margin-md;
+    }
+    .t-avatar-group-wrapper {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .ant-avatar {
+        background: @indicator-neutral;
+      }
+    }
+  }
+
+  .t-content-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .t-content-info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: start;
+      text-align: left;
+      p {
+        word-break: break-all;
+      }
+      .t-authorName {
+        color: @text-dark-50;
+        font-size: @font-size-xs;
+      }
+    }
+
+    .t-time-viewer-container {
+      width: 100%;
+      text-align: right;
+      p {
+        color: #bababa;
+      }
+    }
+
+    @media screen and (max-width: @screen-sm-max) {
+      .t-content-info {
+        flex-basis: 100%;
+      }
+
+      .t-content-date {
+        flex-basis: 100%;
+
+        .t-time-viewer-container {
+          width: 100%;
+          margin-bottom: @margin-sm;
+        }
+      }
+    }
+  }
+}
+.t-messages-list-item:hover,
+.t-messages-list-item-active {
+  border-right: 4px solid @primary-color;
+  background: @background-light-50;
+}
+
+.t-messages-list-item.t-messages-list-item-closed {
+  .t-avatar-wrapper,
+  .t-text {
+    opacity: 0.5;
+  }
+  .t-text.t-body2 {
+    text-decoration: line-through;
+  }
+}

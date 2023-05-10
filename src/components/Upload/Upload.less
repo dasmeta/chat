@@ -1,0 +1,24 @@
+@import '../../theme';
+.t-upload-container {
+  background: @background-light-50;
+  border-radius: @border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: 40px;
+  position: relative;
+
+  .svgDefault {
+    svg path {
+      stroke: @background-light-100;
+      fill: @text-dark-20;
+    }
+  }
+}
+
+.t-upload-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}

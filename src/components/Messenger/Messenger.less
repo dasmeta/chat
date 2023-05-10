@@ -1,0 +1,50 @@
+@import '../../theme';
+
+.t-messenger-container {
+  text-align: center;
+  border-radius: @border-radius;
+  box-shadow: @box-shadow-strong;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .ant-card {
+    background: @card-background-color-strong;
+    .ant-card-head {
+      border-bottom: none;
+    }
+  }
+
+  .t-messenger-title {
+    text-align: left;
+    padding: 36px 36px 24px 36px;
+    border-bottom: 1px solid #f2f2f3;
+    height: 92px;
+  }
+
+  .t-messenger-content-wrapper {
+    overflow: auto;
+    height: calc(100vh - 27em);
+
+    .t-messenger-messages {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      height: calc(100vh - 30em);
+      background-color: @card-background-color-strong;
+    }
+  }
+}
+
+.recording {
+  border: none;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &::selection {
+    background-color: red;
+    color: white;
+  }
+}
