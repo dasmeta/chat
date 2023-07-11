@@ -73,6 +73,7 @@ const TInputArea: React.FC<InputProps> = ({
   const [message, setMessage] = useState((activeMessage || {}).text);
   const [showEmoji, setShowEmoji] = useState(false);
   const [disabledButton, setDisabledButton] = useState(true);
+  const textAreaRef = useRef(null);
   const emojiRef = useRef(null);
   const emojiIconRef = useRef(null);
   const size = useWindowSize();
@@ -121,6 +122,12 @@ const TInputArea: React.FC<InputProps> = ({
       setMessage((activeMessage || {}).text);
     }
   }, [activeMessage]);
+
+  useEffect(() => {
+    if (repliedMessage) {
+      textAreaRef.current.focus();
+    }
+  }, [repliedMessage]);
 
   function onPressEnter(e) {
     const keyCode = e.which || e.keyCode;
@@ -263,6 +270,7 @@ const TInputArea: React.FC<InputProps> = ({
           >
             <div className="t-input-area">
               <TextArea
+                ref={textAreaRef}
                 value={message}
                 className="inputPart"
                 autoSize={{ minRows: 1, maxRows: 5 }}
