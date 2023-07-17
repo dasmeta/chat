@@ -1,3 +1,3 @@
-import AvatarGroup from './AvatarGroup';
+import { TAvatarGroup } from './AvatarGroup';
 
-export default AvatarGroup;
+export default TAvatarGroup;

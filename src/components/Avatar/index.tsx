@@ -1,3 +1,3 @@
-import Avatar from './Avatar';
+import { TAvatar } from './Avatar';
 
-export default Avatar;
+export default TAvatar;

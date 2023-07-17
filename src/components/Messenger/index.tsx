@@ -1,4 +1,4 @@
-import Messenger, { MessengerProps } from './Messenger';
+import { TMessenger, MessengerProps } from './Messenger';
 
 export { MessengerProps };
-export default Messenger;
+export default TMessenger;

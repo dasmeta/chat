@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar';
 import Text from '../Text/Text';
 import TimeViewerESchool from '../TimeViewerESchool';
 import AvatarGroup from '../AvatarGroup';

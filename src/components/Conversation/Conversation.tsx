@@ -2,13 +2,13 @@ import React, { useState, useEffect, useCallback } from 'react';
 import keyBy from 'lodash/keyBy';
 import isEmpty from 'lodash/isEmpty';
 import { v4 } from 'uuid';
-import { MessageActions } from '../../Messenger/components/Message';
-import { MessengerActions } from '../../MessengerInputArea';
-import { Message, Sender } from '../../Messenger/components/MessageItem';
-import { Channel } from '../../MessagesListItem';
-import Messenger from '../../Messenger';
+import { MessageActions } from '../Messenger/components/Message';
+import { MessengerActions } from '../MessengerInputArea';
+import { Message, Sender } from '../Messenger/components/MessageItem';
+import { Channel, ChannelType } from '../MessagesListItem';
+import Messenger from '../Messenger';
 
-export type MessengerBodyPropsType = {
+export type ConversationPropsType = {
   channel?: Channel;
   channels?: Channel[];
   chatHeight?: string;
@@ -23,6 +23,8 @@ export type MessengerBodyPropsType = {
   newMessage?: Message & { channelId?: string };
   messageActions: MessageActions;
   actions: MessengerActions;
+  replyEnabled?: boolean;
+  emojiEnabled?: boolean;
   onRemoveMessage: (messageId: string) => void;
   onUpload: (item: any) => Promise<any>;
   onUploadSuccess?: (item: any) => void;
@@ -31,14 +33,23 @@ export type MessengerBodyPropsType = {
   filter?: React.ReactNode;
 };
 
-const TMessengerBody: React.FC<MessengerBodyPropsType> = ({
-  channel,
+const defaultChannel = {
+  id: 'channel',
+  title: 'Conversation',
+  type: ChannelType.DIRECT,
+  closed: false
+}
+
+export const TConversation: React.FC<ConversationPropsType> = ({
+  channel = defaultChannel,
   onSendMessage,
   onRemoveMessage,
   chatHeight,
   getMessages,
   newMessage,
   actions,
+  replyEnabled = true,
+  emojiEnabled = true,
   messageActions,
   onUpload,
   onAttachmentLoad,
@@ -51,7 +62,7 @@ const TMessengerBody: React.FC<MessengerBodyPropsType> = ({
 
   useEffect(() => {
     if (typeof getMessages === 'function') {
-      getMessages(channel.id).then((messages) => {
+      getMessages(channel?.id).then((messages) => {
         setMessages(messages);
       });
     }
@@ -150,6 +161,8 @@ const TMessengerBody: React.FC<MessengerBodyPropsType> = ({
       title={channel.title}
       disabled={channel.closed}
       actions={actions}
+      replyEnabled={replyEnabled}
+      emojiEnabled={emojiEnabled}
       messageActions={messageActions}
       onUpload={onUpload}
       onLoadAttachment={onAttachmentLoad}
@@ -163,5 +176,3 @@ const TMessengerBody: React.FC<MessengerBodyPropsType> = ({
     />
   );
 };
-
-export default TMessengerBody;

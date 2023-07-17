@@ -23,6 +23,8 @@ export type MessageProps = {
   sender: Sender;
   message: MessageType;
   actions: MessageActions;
+  replyEnabled?: boolean;
+  emojiEnabled?: boolean;
   handleRemoveMessage: (messageId: string) => void;
   onLoadAttachment: (messageId: string) => any;
   setModalVisible?: (value: boolean) => void;
@@ -37,6 +39,7 @@ const TMessage: React.FC<MessageProps & withLocalizationProps> = ({
   handleRemoveMessage,
   onLoadAttachment,
   actions,
+  replyEnabled = true,
   setModalVisible,
 }) => {
   const { translate } = useContext(ConfigContext);
@@ -92,12 +95,14 @@ const TMessage: React.FC<MessageProps & withLocalizationProps> = ({
       />
       {
         <div className="chatApp__message-actions">
-          <div
-            className="chatApp__convMessageItem-action"
-            onClick={() => getRepliedMessage(message)}
-          >
-            <IconReply size="s" />
-          </div>
+          {replyEnabled && (
+            <div
+              className="chatApp__convMessageItem-action"
+              onClick={() => getRepliedMessage(message)}
+            >
+              <IconReply size="s" />
+            </div>
+          )}
           {!isEmpty(actions) && (
             <Dropdown overlay={menu}>
               <div className="chatApp__convMessageItem-action">

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar';
 import Text from '../Text/Text';
 import './MessagesGroupListItem.less';
 

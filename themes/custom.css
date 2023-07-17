@@ -1,0 +1,16 @@
+* {
+    --primary-color: #f54e95;
+    --primary-background-hover-color: #eb4b8f;
+    --text-dark-100: #262626;
+    --text-dark-50: #909091;
+    --text-dark-30: #bbbbbc;
+    --text-dark-20: #d0d0d1;
+    --text-dark-10: #e6e6e7;
+    --background-light-10: #e9e9f0;
+    --background-light-20: #fff;
+    --background-light-30: #f9f9fc;
+    --background-light-50: #fbfbfc;
+    --background-light-100: #fff;
+    --card-background-color-soft: #fff;
+    --card-background-color-strong: #fff;
+}

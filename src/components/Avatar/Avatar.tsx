@@ -7,7 +7,7 @@ import findLastIndex from 'lodash/findLastIndex';
 import min from 'lodash/min';
 import './Avatar.less';
 
-export type Avatar = {
+export interface Avatar {
   src?: string;
   name?: string;
   alt?: string;
@@ -76,7 +76,7 @@ const nameFirstLetters = (name = '') => {
   return arr.map((s) => s.charAt(0).toLocaleUpperCase()).join('');
 };
 
-const TAvatar: React.FC<Avatar> = ({
+export const TAvatar: React.FC<Avatar> = ({
   size = 'md',
   avatarColor,
   textLevel = 2,
@@ -126,5 +126,3 @@ const TAvatar: React.FC<Avatar> = ({
     </div>
   );
 };
-
-export default TAvatar;

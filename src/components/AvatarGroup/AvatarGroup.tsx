@@ -11,7 +11,7 @@ export type AvatarGroup = {
   onClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const TAvatarGroup: React.FC<AvatarGroup> = ({ maxCount, children, size }) => {
+export const TAvatarGroup: React.FC<AvatarGroup> = ({ maxCount, children, size }) => {
   return (
     <div className="t-avatar-group">
       {/* //TODO After updating antd version in LMS, open comment
@@ -24,5 +24,3 @@ const TAvatarGroup: React.FC<AvatarGroup> = ({ maxCount, children, size }) => {
     </div>
   );
 };
-
-export default TAvatarGroup;

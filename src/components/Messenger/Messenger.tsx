@@ -25,6 +25,8 @@ export type MessengerProps = {
   disabled?: boolean;
   messages?: MessageType[];
   actions: MessengerActions;
+  replyEnabled?: boolean;
+  emojiEnabled?: boolean;
   messageActions: MessageActions;
   onUpload: (item: any) => Promise<any>;
   onUploadSuccess?: (item: any) => void;
@@ -47,7 +49,7 @@ const groupByDate = (messages) => {
   return dates;
 };
 
-const TMessenger: React.FC<MessengerProps> = ({
+export const TMessenger: React.FC<MessengerProps> = ({
   sender,
   title,
   channelId,
@@ -55,9 +57,11 @@ const TMessenger: React.FC<MessengerProps> = ({
   onForwardMessage,
   onReplyMessage,
   chatHeight,
-  disabled,
+  disabled = false,
   messages = [],
   actions,
+  replyEnabled = true,
+  emojiEnabled = true,
   messageActions,
   handleRemoveMessage,
   onLoadAttachment,
@@ -119,6 +123,7 @@ const TMessenger: React.FC<MessengerProps> = ({
                 sender={sender}
                 handleRemoveMessage={handleRemoveMessage}
                 actions={messageActions}
+                replyEnabled={replyEnabled}
                 key={mess.id}
                 message={mess}
                 setModalVisible={setModalVisible}
@@ -173,6 +178,7 @@ const TMessenger: React.FC<MessengerProps> = ({
           repliedMessage={repliedMessage}
           unsetRepliedMessage={() => setRepliedMessage({})}
           actions={actions}
+          emojiEnabled={emojiEnabled}
           onSendMessage={onSendMessage}
           onReplyMessage={onReplyMessage}
           channelId={channelId}
@@ -183,5 +189,3 @@ const TMessenger: React.FC<MessengerProps> = ({
     </div>
   );
 };
-
-export default TMessenger;

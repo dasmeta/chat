@@ -1,7 +1,8 @@
 import MessagesListItem, {
   Channel,
+  ChannelType,
   MessagesListItemProps,
 } from './MessagesListItem';
 
-export { Channel, MessagesListItemProps };
+export { Channel, ChannelType, MessagesListItemProps };
 export default MessagesListItem;

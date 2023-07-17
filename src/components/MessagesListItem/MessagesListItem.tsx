@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar';
 import Text from '../Text/Text';
 import TimeViewer from '../TimeViewer/TimeViewer';
 import AvatarGroup from '../AvatarGroup';
@@ -8,21 +8,27 @@ import Avatarboye from '../../images/avatar1.png';
 import AvatarGirl from '../../images/avatar2.png';
 import './MessagesListItem.less';
 
+export enum ChannelType {
+  GROUP = 'group',
+  DIRECT = 'direct',
+  SYSTEM = 'system'
+}
+
 export type Channel = {
   id: string;
   title: string;
-  type: 'group' | 'direct' | 'system';
-  lastMessage: {
+  type: ChannelType;
+  lastMessage?: {
     text: string;
     type?: string;
     author: string;
     date: string;
   };
   toUserId?: string;
-  avatar: string;
-  avatarAlt: string;
+  avatar?: string;
+  avatarAlt?: string;
   closed?: boolean;
-  sent: boolean;
+  sent?: boolean;
 };
 
 export type MessagesListItemProps = {

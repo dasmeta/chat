@@ -1,9 +1,13 @@
 import React, { ReactNode } from 'react';
-import CardListESchool from '../CardListESchool';
+import Text from '../Text';
+import Wrapper from '../Wrapper';
+import Loading from '../Loading';
 import MessagesListItemESchool, {
   MessagesListItemProps,
 } from '../MessagesListItemESchool';
 import ComunicationIcon from './images/comunication.svg';
+
+import './MessagesCardListESchool.less';
 
 export type MessagesCardListProps = {
   title: string;
@@ -28,24 +32,35 @@ const TMessagesCardList: React.FC<MessagesCardListProps> = ({
   headerIcon,
 }) => {
   return (
-    <>
-      <CardListESchool
-        title={title}
-        viewAll={viewAll}
-        loading={loading}
-        height={height}
-        fallback={fallback}
-        headerIcon={headerIcon || ComunicationIcon}
+    <div className="e-cardList-container">
+      <div className="e-card-list-header">
+        <Text rows={1} level={1} bold>
+          {title}
+        </Text>
+        <Wrapper ml={2}>
+          <img style={{ width: '32px', height: '32px' }} src={headerIcon || ComunicationIcon} />
+        </Wrapper>
+      </div>
+      <div
+        className="e-card-list-fallback-wrapper"
+        style={{ height: height || 'auto', overflow: 'auto' }}
       >
-        {messages.map((item, index) => (
+        {loading ? (
+          <div className="e-card-loading-wrapper">
+            <Loading />
+          </div>
+        ) : messages.length ? messages.map((item, index) => (
           <MessagesListItemESchool
             noMessagesText={noMessagesText}
             key={index}
             {...item}
           />
-        ))}
-      </CardListESchool>
-    </>
+        )) : (
+          <div className="e-card-fallback">{fallback}</div>
+        )}
+      </div>
+      {viewAll && <div className={'e-card-list-footer'}>{viewAll}</div>}
+    </div>
   );
 };
 

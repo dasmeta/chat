@@ -1,3 +1,3 @@
-import Chat from './Chat';
+import { TChannelList } from './Chat';
 
-export default Chat;
+export default TChannelList;

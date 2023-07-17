@@ -1,10 +1,8 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Input, Form, message } from 'antd';
+import { Input, Form, message, Button } from 'antd';
 import { Picker } from 'emoji-mart';
 import isEmpty from 'lodash/isEmpty';
 import { ConfigContext } from '../../context/Config';
-import Button from '../Button';
-import FormContainer from '../Form';
 import IconSend from '../Icons/IconSend';
 import VoiceRecorder from '../VoiceRecorder';
 import Upload from '../Upload';
@@ -12,8 +10,9 @@ import IconClip from '../Icons/IconClip';
 import Text from '../Text';
 import { Message } from '../Messenger/components/MessageItem';
 import { IconCloseOutlined, IconEmoji } from '../Icons';
-import { useWindowSize } from '../../hooks/useWindowSize.js';
+import { useWindowSize } from '../../hooks/useWindowSize';
 import 'emoji-mart/css/emoji-mart.css';
+import '../TextInput/TextInput.less';
 import './MessengerInputArea.less';
 
 const { TextArea } = Input;
@@ -30,6 +29,7 @@ export type InputProps = {
   unsetActiveMessage: () => void;
   disabled?: boolean;
   actions?: MessengerActions;
+  emojiEnabled?: boolean;
   onSendMessage?: (message: Message, channelId?: string) => any;
   onReplyMessage?: (message: Message, channelId?: string) => any;
   channelId: string;
@@ -61,6 +61,7 @@ const TInputArea: React.FC<InputProps> = ({
   unsetActiveMessage,
   disabled,
   actions,
+  emojiEnabled = true,
   channelId,
   onUpload,
   onSendMessage,
@@ -225,9 +226,9 @@ const TInputArea: React.FC<InputProps> = ({
           <Text level={4}>{repliedMessage.text}</Text>
         </div>
       )}
-      <FormContainer
+      <Form
         className="inputArea"
-        onSuccess={(value: any) => {
+        onFinish={(value: any) => {
           return handleSendMessage(
             {
               text: message,
@@ -286,29 +287,34 @@ const TInputArea: React.FC<InputProps> = ({
               />
             </div>
 
-            <div className="t-emojies-wrapper">
-              <div ref={emojiRef} className="t-inputArea-emojies-wrapper">
-                {showEmoji && (
-                  <Picker
-                    onSelect={handleEmojiSelect}
-                    emojiSize={20}
-                    enableFrequentEmojiSort
-                    title="Pick your emoji..."
-                    notFoundEmoji="sleuth_or_spy"
-                    emoji="point_up"
-                    color="#ae65c5"
-                    showPreview
-                    showSkinTones
-                  />
-                )}
+            {emojiEnabled && (
+              <div className="t-emojies-wrapper">
+                <div ref={emojiRef} className="t-inputArea-emojies-wrapper">
+                  {showEmoji && (
+                    <Picker
+                      onSelect={handleEmojiSelect}
+                      emojiSize={20}
+                      enableFrequentEmojiSort
+                      title="Pick your emoji..."
+                      notFoundEmoji="sleuth_or_spy"
+                      emoji="point_up"
+                      color="#ae65c5"
+                      showPreview
+                      showSkinTones
+                    />
+                  )}
+                </div>
+                <div className="t-inputArea-emoji-wrapper" ref={emojiIconRef}>
+                  <IconEmoji />
+                </div>
               </div>
-              <div className="t-inputArea-emoji-wrapper" ref={emojiIconRef}>
-                <IconEmoji />
-              </div>
-            </div>
-
+            )}
+            
             <Button
-              size="large"
+              htmlType='submit'
+              className='t-send-button'
+              size='large'
+              type='primary'
               icon={
                 <span className={isMobile && 'onMobile'}>
                   <IconSend />
@@ -328,7 +334,7 @@ const TInputArea: React.FC<InputProps> = ({
             </Button>
           </div>
         </Form.Item>
-      </FormContainer>
+      </Form>
     </div>
   );
 };

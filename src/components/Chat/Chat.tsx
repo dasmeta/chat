@@ -2,9 +2,9 @@ import React, { ReactNode, useState } from 'react';
 import { Tabs } from 'antd';
 import MessagesListItem, { Channel } from '../MessagesListItem';
 import { useWindowSize } from '../../hooks/useWindowSize';
-import MessengerBody, {
-  MessengerBodyPropsType,
-} from './components/MessengerBody';
+import Conversation, {
+  ConversationPropsType,
+} from '../Conversation';
 import './Chat.less';
 
 export type ChannelListProps = {
@@ -19,14 +19,14 @@ export type ChannelListProps = {
     key: string,
     event: React.MouseEvent<HTMLInputElement>,
   ) => void;
-  messenger: MessengerBodyPropsType;
+  messenger: ConversationPropsType;
   onScrollBottom?: (channels: Channel[]) => Promise<any>;
   disableOnScroll?: boolean;
 };
 
 const TabPane = Tabs.TabPane;
 
-const TChannelList: React.FC<ChannelListProps> = ({
+export const TChannelList: React.FC<ChannelListProps> = ({
   channels = [],
   height,
   onChannelChange,
@@ -92,10 +92,10 @@ const TChannelList: React.FC<ChannelListProps> = ({
         {channels.map((item) => (
           <TabPane
             tab={<MessagesListItem channel={item} />}
-            tabKey={item.id}
+            key={item.id}
             style={{ paddingLeft: !mobile ? '16px' : '0px' }}
           >
-            <MessengerBody
+            <Conversation
               {...messenger}
               channel={item}
               channels={channels}
@@ -107,5 +107,3 @@ const TChannelList: React.FC<ChannelListProps> = ({
     </div>
   );
 };
-
-export default TChannelList;
