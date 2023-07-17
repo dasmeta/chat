@@ -2,13 +2,8 @@ import React, { useCallback, useState } from 'react';
 import MessageItemRight from './MessageItemRight';
 import MessageItemLeft from './MessageItemLeft';
 import isEmpty from 'lodash/isEmpty';
+import { Sender } from '../../../types';
 import './ConvMessage.less';
-
-export type Sender = {
-  id?: string;
-  name: string;
-  avatar?: string;
-};
 
 export type Message = {
   id?: string;

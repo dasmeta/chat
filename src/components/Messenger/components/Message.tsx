@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Menu } from 'antd';
 import isEmpty from 'lodash/isEmpty';
-import MessageItem, { Message as MessageType, Sender } from './MessageItem';
+import MessageItem, { Message as MessageType } from './MessageItem';
 import Dropdown from '../../Dropdown';
 import {
   withLocalization,
@@ -9,6 +9,7 @@ import {
   ConfigContext,
 } from '../../../context/Config';
 import { IconMoreActions, IconReply } from "../../Icons";
+import { Sender } from "../../../types";
 
 export type MessageActions = {
   update: boolean;

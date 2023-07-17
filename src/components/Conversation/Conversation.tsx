@@ -4,9 +4,10 @@ import isEmpty from 'lodash/isEmpty';
 import { v4 } from 'uuid';
 import { MessageActions } from '../Messenger/components/Message';
 import { MessengerActions } from '../MessengerInputArea';
-import { Message, Sender } from '../Messenger/components/MessageItem';
+import { Message } from '../Messenger/components/MessageItem';
 import { Channel, ChannelType } from '../MessagesListItem';
 import Messenger from '../Messenger';
+import { Sender } from '../../types';
 
 export type ConversationPropsType = {
   channel?: Channel;
@@ -21,12 +22,12 @@ export type ConversationPropsType = {
     messagesLoaded?: number,
   ) => Promise<Message[]>;
   newMessage?: Message & { channelId?: string };
-  messageActions: MessageActions;
-  actions: MessengerActions;
+  messageActions?: MessageActions;
+  actions?: MessengerActions;
   replyEnabled?: boolean;
   emojiEnabled?: boolean;
   onRemoveMessage: (messageId: string) => void;
-  onUpload: (item: any) => Promise<any>;
+  onUpload?: (item: any) => Promise<any>;
   onUploadSuccess?: (item: any) => void;
   onUploadError?: (error: any) => void;
   onAttachmentLoad?: (messageId: string) => any;

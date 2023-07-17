@@ -3,12 +3,7 @@ import { Spin } from 'antd';
 import './ConvMessage.less';
 import { IconRefresh } from "../../Icons";
 import { Message } from './MessageItem';
-
-export type Sender = {
-  id?: string;
-  name: string;
-  avatar?: string;
-};
+import { Sender } from '../../../types';
 
 export type MessageAttachmentLoaderProps = {
   message: Message;

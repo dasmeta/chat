@@ -5,14 +5,9 @@ import isEmpty from 'lodash/isEmpty';
 import MessageAttachmentLoader from './MessageAttachmentLoader';
 import Avatar from '../../Avatar';
 import { IconReply } from '../../Icons';
+import { Sender } from '../../../types';
 
 import './ConvMessage.less';
-
-export type Sender = {
-  id?: string;
-  name: string;
-  avatar?: string;
-};
 
 export type Message = {
   id?: string;

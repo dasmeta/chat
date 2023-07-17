@@ -37,3 +37,9 @@ export enum InputTypes {
   URL = 'url',
   WEEK = 'week',
 }
+
+export type Sender = {
+  id?: string;
+  name: string;
+  avatar?: string;
+};
