@@ -4,11 +4,10 @@ import isEmpty from 'lodash/isEmpty';
 import moment from 'moment';
 import Message, { MessageActions } from './components/Message';
 import MessengerInputArea, { MessengerActions } from '../MessengerInputArea';
-import { Message as MessageType } from './components/MessageItem';
 import Text from '../Text';
 import ForwardMessage from './components/ForwardMessage';
 import { Channel } from '../MessagesListItem';
-import { Sender } from '../../types';
+import { Sender, Message as MessageType } from '../../types';
 import './Messenger.module.less';
 import './Messenger.less';
 

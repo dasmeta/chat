@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Menu } from 'antd';
 import isEmpty from 'lodash/isEmpty';
-import MessageItem, { Message as MessageType } from './MessageItem';
+import MessageItem from './MessageItem';
 import Dropdown from '../../Dropdown';
 import {
   withLocalization,
@@ -9,7 +9,7 @@ import {
   ConfigContext,
 } from '../../../context/Config';
 import { IconMoreActions, IconReply } from "../../Icons";
-import { Sender } from "../../../types";
+import { Sender, Message as MessageType } from "../../../types";
 
 export type MessageActions = {
   update: boolean;
@@ -46,6 +46,7 @@ const TMessage: React.FC<MessageProps & withLocalizationProps> = ({
   const { translate } = useContext(ConfigContext);
 
   const isMe = message.sender.id === sender.id;
+  const isRepliedToMe = message.repliedMessage?.sender?.id === sender.id;
 
   const menu = (
     <Menu
@@ -92,6 +93,7 @@ const TMessage: React.FC<MessageProps & withLocalizationProps> = ({
       <MessageItem
         message={message}
         isMe={isMe}
+        isRepliedToMe={isRepliedToMe}
         onLoadAttachment={onLoadAttachment}
       />
       {

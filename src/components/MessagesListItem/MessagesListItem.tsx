@@ -7,12 +7,7 @@ import MessageDefaultImage from '../../images/message.png';
 import Avatarboye from '../../images/avatar1.png';
 import AvatarGirl from '../../images/avatar2.png';
 import './MessagesListItem.less';
-
-export enum ChannelType {
-  GROUP = 'group',
-  DIRECT = 'direct',
-  SYSTEM = 'system'
-}
+import { ChannelType } from '../../constants';
 
 export type Channel = {
   id: string;

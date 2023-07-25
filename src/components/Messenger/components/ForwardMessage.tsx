@@ -4,16 +4,15 @@ import Avatar from '../../Avatar';
 import { Channel } from '../../MessagesListItem';
 import Text from '../../Text';
 import MessageDefaultImage from '../../../images/message.png';
-
-import { Message, Message as MessageType } from '../components/MessageItem';
 import { ConfigContext } from '../../../context/Config';
+import { Message  } from '../../../types';
 import remove from 'lodash/remove';
 
 export type ForwardMessagePropsType = {
   channels?: Channel[];
   modalVisible?: boolean;
   setModalVisible?: (item: boolean) => void;
-  onForwardMessage?: (message: MessageType, channelId?: string) => any;
+  onForwardMessage?: (message: Message, channelId?: string) => any;
   forwardedMessage: Message;
   filter: React.ReactNode;
 };

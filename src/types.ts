@@ -38,8 +38,35 @@ export enum InputTypes {
   WEEK = 'week',
 }
 
+export type ConfigProps = {
+  translate?: (
+    key: string,
+    params?: { [key: string]: any },
+    editable?: boolean,
+  ) => string;
+  locale?: string;
+  momentLocale?: string;
+  moment?: any;
+}
+
 export type Sender = {
   id?: string;
   name: string;
   avatar?: string;
+};
+
+export type Message = {
+  id?: string;
+  messageId?: string;
+  date: Date;
+  type?: string;
+  text?: string;
+  edited?: boolean;
+  fileName?: string;
+  fileType?: string;
+  sender?: Sender;
+  seen?: Array<Sender>;
+  forwardedMessage?: Sender;
+  repliedMessage?: Message;
+  loaded?: boolean;
 };

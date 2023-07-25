@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Tooltip } from 'antd';
 import isEmpty from 'lodash/isEmpty';
 import moment from 'moment';
 import Avatar from '../../Avatar';
 import { IconReply } from '../../Icons';
 import MessageAttachmentLoader from './MessageAttachmentLoader';
+import { ConfigContext } from '../../../context/Config';
 import { Sender } from '../../../types';
 
 import './ConvMessage.less';
@@ -30,6 +31,7 @@ export type MessageItemProps = {
   loaded: boolean;
   onLoadAttachment: (messageId: string) => any;
   onLoadSuccess?: () => any;
+  isRepliedToMe?: boolean;
 };
 
 const TMessageItem: React.FC<MessageItemProps> = ({
@@ -37,9 +39,12 @@ const TMessageItem: React.FC<MessageItemProps> = ({
   getMessage,
   renderSeenNames,
   loaded = true,
+  isRepliedToMe = false,
   onLoadAttachment,
   onLoadSuccess = () => {},
 }) => {
+
+  const { translate } = useContext(ConfigContext);
   const [seenNamesVisible, setSeenNamesVisible] = useState(false);
 
   return (
@@ -58,8 +63,8 @@ const TMessageItem: React.FC<MessageItemProps> = ({
                   <IconReply fill="currentcolor" size="s" />
                   &nbsp;
                   <span className="chatApp__convMessageHeaderText">
-                    {message.sender.name} replied to{' '}
-                    {message.repliedMessage.sender.name}
+                    { isRepliedToMe ? translate('{{from}} replied to you', { from: message.sender.name }) 
+                      : translate('{{from}} replied to {{to}}', { from: message.sender.name, to: message.repliedMessage.sender.name }) }
                   </span>{' '}
                 </>
               ) : (

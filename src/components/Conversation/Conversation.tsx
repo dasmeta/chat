@@ -4,10 +4,10 @@ import isEmpty from 'lodash/isEmpty';
 import { v4 } from 'uuid';
 import { MessageActions } from '../Messenger/components/Message';
 import { MessengerActions } from '../MessengerInputArea';
-import { Message } from '../Messenger/components/MessageItem';
-import { Channel, ChannelType } from '../MessagesListItem';
+import { Channel } from '../MessagesListItem';
 import Messenger from '../Messenger';
-import { Sender } from '../../types';
+import { ChannelType } from '../../constants';
+import { Sender, Message } from '../../types';
 
 export type ConversationPropsType = {
   channel?: Channel;

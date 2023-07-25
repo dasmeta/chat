@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Tooltip } from 'antd';
 import moment from 'moment';
 import isEmpty from 'lodash/isEmpty';
 import MessageAttachmentLoader from './MessageAttachmentLoader';
 import Avatar from '../../Avatar';
 import { IconReply } from '../../Icons';
+import { ConfigContext } from '../../../context/Config';
 import { Sender } from '../../../types';
 
 import './ConvMessage.less';
@@ -40,6 +41,7 @@ const TMessageItem: React.FC<MessageItemProps> = ({
   onLoadAttachment,
   onLoadSuccess = () => {},
 }) => {
+  const { translate } = useContext(ConfigContext);
   const [seenNamesVisible, setSeenNamesVisible] = useState(false);
 
   return (
@@ -53,7 +55,7 @@ const TMessageItem: React.FC<MessageItemProps> = ({
                   <IconReply fill="currentcolor" size="s" />
                   &nbsp;
                   <span className="chatApp__convMessageHeaderText">
-                    You replied to {message.repliedMessage.sender.name}{' '}
+                    {translate('You replied to {{to}}', { to: message.repliedMessage.sender.name })}
                   </span>
                 </>
               )}

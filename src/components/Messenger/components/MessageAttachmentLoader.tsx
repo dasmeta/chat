@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Spin } from 'antd';
 import './ConvMessage.less';
 import { IconRefresh } from "../../Icons";
-import { Message } from './MessageItem';
-import { Sender } from '../../../types';
+import { Sender, Message } from '../../../types';
 
 export type MessageAttachmentLoaderProps = {
   message: Message;

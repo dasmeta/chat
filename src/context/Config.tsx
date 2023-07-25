@@ -1,17 +1,7 @@
 import React, { createContext } from 'react';
 import moment from 'moment';
 import translations from '../translations.json';
-
-export type ConfigProps = {
-  translate?: (
-    key: string,
-    params?: { [key: string]: any },
-    editable?: boolean,
-  ) => string;
-  locale?: string;
-  momentLocale?: string;
-  moment?: any;
-};
+import { ConfigProps } from '../types';
 
 export type withLocalizationProps = {
   moment?: (date?: string) => moment.Moment;
@@ -25,7 +15,7 @@ const defaultProps: ConfigProps = {
 };
 export const ConfigContext = createContext(defaultProps);
 
-const TProvider = ({ children, momentLocale, ...props }) => {
+const TProvider: React.FC<ConfigProps & { children?: React.ReactNode }> = ({ children, momentLocale, ...props }) => {
   moment.locale(momentLocale);
 
   return (

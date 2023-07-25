@@ -2,34 +2,20 @@ import React, { useCallback, useState } from 'react';
 import MessageItemRight from './MessageItemRight';
 import MessageItemLeft from './MessageItemLeft';
 import isEmpty from 'lodash/isEmpty';
-import { Sender } from '../../../types';
+import { Message } from '../../../types';
 import './ConvMessage.less';
-
-export type Message = {
-  id?: string;
-  messageId?: string;
-  date: Date;
-  type?: string;
-  text?: string;
-  edited?: boolean;
-  fileName?: string;
-  fileType?: string;
-  sender?: Sender;
-  seen?: Array<Sender>;
-  forwardedMessage?: Sender;
-  repliedMessage?: Message;
-  loaded?: boolean;
-};
 
 export type MessageItemProps = {
   message: Message;
   isMe?: boolean;
+  isRepliedToMe?: boolean;
   onLoadAttachment: (messageId: string) => void;
 };
 
 const TMessageItem: React.FC<MessageItemProps> = ({
   message,
   isMe,
+  isRepliedToMe,
   onLoadAttachment,
 }) => {
   const [loaded, setLoaded] = useState<boolean>(message.loaded);
@@ -144,6 +130,7 @@ const TMessageItem: React.FC<MessageItemProps> = ({
         loaded={loaded}
         onLoadAttachment={onLoadAttachment}
         onLoadSuccess={onLoadSuccess}
+        isRepliedToMe={isRepliedToMe}
       />
     );
   };
