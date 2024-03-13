@@ -84,7 +84,7 @@ export const TChannelList: React.FC<ChannelListProps> = ({
         tabBarExtraContent={header}
         tabBarStyle={{
           marginBottom: mobile ? '50px' : 'auto',
-          height: mobile ? 'calc(100vh - 350px)' : height,
+          height: mobile ? 'calc(100vh - 50em)' : height,
           width: mobile ? '100%' : '25%',
         }}
         onScroll={getScrollPosition}
