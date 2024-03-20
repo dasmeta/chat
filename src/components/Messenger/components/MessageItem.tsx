@@ -49,7 +49,7 @@ const TMessageItem: React.FC<MessageItemProps> = ({
         const urlify = (text) => {
           const urlRegex = /(https?:\/\/[^\s]+)/g;
           return text.replace(urlRegex, (url) => {
-            return `<a href=${url}">${url}</a>`;
+            return `<a href=${url}>${url}</a>`;
           });
         };
         const html = urlify(message.text);
